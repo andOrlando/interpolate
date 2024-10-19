@@ -314,7 +314,9 @@ local function timed(args)
 	function obj:fire(...) args = ({...})[1] and {...} or {obj.pos, obj._time, obj._dx}; for _, func in pairs(obj._subscribed) do func(unpack(args)) end end
 
 	--subscribe stuff initially and add callback
-	obj.subscribe_callback = function(func) func(obj.pos, obj._time, obj._dt) end
+	if args.init then
+		obj.subscribe_callback = function(func) func(obj.pos, obj._time, obj._dt) end
+	end
 	if args.subscribed ~= nil then obj:subscribe(args.subscribed) end
 
 	-- Metatable for cooler api

@@ -161,6 +161,7 @@ Arguments (in the form of a table):
  - `awestore_compat`: make api even *more* similar to awestore's (def. `false`)
  - `log`: it would print additional logs, but there aren't any logs to print right now so it kinda just sits there (def. `false`)
  - `debug`: basically just tags the timed instance. I use it in tandem with `manager.timed.override.forall`
+ - `init`: when `true`, executes `subscribed` function one time initially with the initial `pos` of the animation
 
 All of these values (except awestore_compat and subscribed) are mutable and changing them will change how the animation looks. I do not suggest changing `pos`, however, unless you change the position of what's going to be animated in some other way
 
